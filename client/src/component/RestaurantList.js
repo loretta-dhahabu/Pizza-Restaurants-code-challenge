@@ -30,7 +30,7 @@ function RestaurantList() {
                  to={`/restaurants/${restaurant.id}`}
                  onClick={() => <Restaurant key={restaurant.id} />}
                >
-                 <button>View More</button>
+                 <button className="viewBtn">View More</button>
               </Link>
              </div>
         </div>
