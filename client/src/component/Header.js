@@ -3,12 +3,12 @@ import React from 'react'
 function Header() {
     return (
       //   NavBar
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="/">
           Pizza-Restaurants
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -16,29 +16,29 @@ function Header() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                Home <span class="sr-only">(current)</span>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="/">
+                <i className="fa fa-home" aria-hidden="true"></i>
+                Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                <i class="fa fa-cutlery" aria-hidden="true"></i> Restaurants
+            <li className="nav-item active">
+              <a className="nav-link" href="/restaurants">
+                <i className="fa fa-cutlery" aria-hidden="true"></i> Restaurants
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                <i class="fa fa-cutlery" aria-hidden="true"></i> Pizzas
+            <li className="nav-item active">
+              <a className="nav-link" href="/pizzas">
+                <i className="fa fa-cutlery" aria-hidden="true"></i> Pizzas
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                <i class="fa fa-phone" aria-hidden="true"></i> Contact
+            <li className="nav-item active">
+              <a className="nav-link" href="/contact">
+                <i className="fa fa-phone" aria-hidden="true"></i> Contact
               </a>
             </li>
           </ul>
