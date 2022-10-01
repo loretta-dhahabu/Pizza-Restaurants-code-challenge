@@ -9,6 +9,6 @@ class RestaurantsController < ApplicationController
     #GET /restaurants/:id
     def show
         restaurant = Restaurant.find_by(id: params[:id])
-        render json: restaurant
+        render json: restaurant, include: :pizzas
     end
 end
