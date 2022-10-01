@@ -4,6 +4,9 @@
   color: beige;
   border-radius: .5em;
 }
+.navbar-light{
+  background-color: rgba(0, 0, 0, 0.204) !important;
+}
 
 
 /* .App {

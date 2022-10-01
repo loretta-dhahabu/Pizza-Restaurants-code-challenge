@@ -22,21 +22,24 @@ function Header() {
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">
+                <i class="fa fa-home" aria-hidden="true"></i>
                 Home <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">
-                Restaurants
+                <i class="fa fa-cutlery" aria-hidden="true"></i> Restaurants
               </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">
-                Pizzas
+                <i class="fa fa-cutlery" aria-hidden="true"></i> Pizzas
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#">
+                <i class="fa fa-phone" aria-hidden="true"></i> Contact
+              </a>
             </li>
           </ul>
         </div>
