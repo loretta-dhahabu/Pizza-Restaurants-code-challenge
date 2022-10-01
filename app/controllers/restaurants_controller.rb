@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-    
+rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
     #GET /restaurants
     def index
         restaurants = Restaurant.all
@@ -8,11 +9,15 @@ class RestaurantsController < ApplicationController
 
     #GET /restaurants/:id
     def show
-        restaurant = Restaurant.find_by(id: params[:id])
-        if restaurant
-        render json: restaurant, include: :pizzas
-        else
-            render json: {error: "Restaurant not found"}, status: :not_found
-        end
+        restaurant = Restaurant.find(params[:id])
+        render json: restaurant, serializer: RestaurantPizzaSerializer, status: :ok
+    end
+
+
+
+    private
+
+    def record_not_found
+        render json: {error: "Restaurant not found"}, status: :not_found
     end
 end
