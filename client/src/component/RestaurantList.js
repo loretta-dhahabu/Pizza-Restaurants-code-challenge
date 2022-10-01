@@ -16,25 +16,32 @@ function RestaurantList() {
 
   let hotelList = restaurants.map((restaurant) => {
     return (
-      <div className="card" key={restaurant.id}>
-        <img
-          src={restaurant.image}
-          className="card-img-top"
-          alt={restaurant.name}
-        />
-        <div className="card-body">
-          <h5 className="card-title text-center">Card title{restaurant.name}</h5>
-          <p className="card-text text-center">{restaurant.address}</p>
-          <div className="restaurant-details">
+      <div className="restbody">
+        <div className="container bg-darksalmon">
+          <div className="card restcards" key={restaurant.id}>
+            <img
+              src={restaurant.image}
+              className="card-img-top restimages"
+              alt={restaurant.name}
+            />
+            <div className="card-body">
+              <h5 className="card-title text-center">
+                Card title{restaurant.name}
+              </h5>
+              <p className="card-text text-center">{restaurant.address}</p>
+              <div className="restaurant-details">
                 <Link
-                 to={`/restaurants/${restaurant.id}`}
-                 onClick={() => <Restaurant key={restaurant.id} />}
-               >
-                 <button className="viewBtn">View More</button>
-              </Link>
-             </div>
+                  to={`/restaurants/${restaurant.id}`}
+                  onClick={() => <Restaurant key={restaurant.id} />}
+                >
+                  <button className="viewBtn">View More</button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
       // <div className="container" key={restaurant.id}>
       //   <div className="row">
       //     <div className="col-12 col-md-12 col-lg-12">
