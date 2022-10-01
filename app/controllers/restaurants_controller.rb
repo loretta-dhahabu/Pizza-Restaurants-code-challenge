@@ -13,6 +13,16 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
         render json: restaurant, serializer: RestaurantPizzaSerializer, status: :ok
     end
 
+    # DELETE /restaurants/:id
+    def destroy
+        #find
+        delete_restaurant = Restaurant.find(params[:id])
+        #delete
+        delete_restaurant.destroy
+        head :no_content
+
+    end
+
 
 
     private
