@@ -7,7 +7,29 @@
 .navbar-light{
   background-color: rgba(0, 0, 0, 0.204) !important;
 }
+.section1{
+  height: 70vh !important;
+}
+.myimage{
+  height: 65vh !important;
+  object-fit: cover !important;
 
+}
+.welcomeBtn{
+  border-radius: 1em;
+  border: none;
+  height: 2em;
+  width: 8em;
+  color: bisque;
+  font-size: 15px;
+  font-weight: bold;
+}
+.notes{
+  font-size: 24px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  color: black;
+}
 
 /* .App {
   text-align: center;
