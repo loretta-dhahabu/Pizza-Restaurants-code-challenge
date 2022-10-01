@@ -1,3 +1,11 @@
+.nav-link:hover{
+  background-color: cadetblue;
+  cursor: pointer;
+  color: beige;
+  border-radius: .5em;
+}
+
+
 /* .App {
   text-align: center;
 }
