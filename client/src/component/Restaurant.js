@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import RestaurantPizzaForm from './RestaurantPizzaForm';
 
 function Restaurant ()
 {
@@ -31,16 +30,6 @@ function Restaurant ()
     });
   }, [id]);
   
-  // function handleNewPizzas(newPizza) {
-  //   setRestaurant({
-  //     data: {
-  //       ...restaurant,
-  //       pizzas: [...restaurant.pizzas, newPizza],
-  //     },
-  //     error: "",
-  //     status: "resolved",
-  //   });
-  // }
   if (status === "pending") return <h1>Loading...</h1>;
   if (status === "rejected") return <h1>Error: {error.error}</h1>;
 

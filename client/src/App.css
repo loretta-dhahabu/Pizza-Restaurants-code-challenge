@@ -111,4 +111,5 @@
   width: 70vh;
   margin-bottom: 2em;
   border-radius: 2em;
+  object-fit: cover;
 }
