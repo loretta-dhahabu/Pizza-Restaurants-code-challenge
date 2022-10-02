@@ -2,25 +2,47 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import RestaurantPizzaForm from './RestaurantPizzaForm';
 
-function Restaurant ({image, name, address})
+function Restaurant ()
 {
-  const [ restaurant, setRestaurant ] = useState( {} )
+  const [{ data: restaurant, error, status }, setRestaurant] = useState({
+    data: {},
+    error: "",
+    status: "pending",
+  });
   const { id } = useParams();
-  // const restList = address.map((addres) => (
-  //   <span key={addres}>{addres}</span>
-  // ) );
+
   
-  useEffect( () =>
-  {
-    fetch( `/restaurants/${id}` )
-    .then( ( response ) => response.json() )
-      .then( ( data ) =>
+  useEffect(() => {
+    fetch(`/restaurants/${id}`).then((response) => {
+      if (response.ok) {
+        response.json().then( (restaurant) => {
+          console.log(restaurant);
+          setRestaurant({ data: restaurant, error: "", status: "resolved" })
+        } );
+        // console.log(restaurant);
+      }
+      else
       {
-        console.log( data );
-        setRestaurant(()=> data)
-    })
-  }, [ id ] )
+        response.json()
+          .then((err) =>
+            setRestaurant({ data: "", error: err.error, status: "rejected" })
+          );
+      }
+    });
+  }, [id]);
   
+  // function handleNewPizzas(newPizza) {
+  //   setRestaurant({
+  //     data: {
+  //       ...restaurant,
+  //       pizzas: [...restaurant.pizzas, newPizza],
+  //     },
+  //     error: "",
+  //     status: "resolved",
+  //   });
+  // }
+  if (status === "pending") return <h1>Loading...</h1>;
+  if (status === "rejected") return <h1>Error: {error.error}</h1>;
 
   return (
     <div className="restbody">
@@ -32,9 +54,7 @@ function Restaurant ({image, name, address})
             alt={restaurant.name}
           />
           <div className="card-body">
-            <h5 className="card-title text-center">
-              Card title{restaurant.name}
-            </h5>
+            <h5 className="card-title text-center">{restaurant.name}</h5>
             <p className="card-text text-center">{restaurant.address}</p>
             <div className="restaurant-details">
               <Link
@@ -45,6 +65,21 @@ function Restaurant ({image, name, address})
               </Link>
             </div>
           </div>
+        </div>
+        <div className="card">
+          <h3 className="text-center text-bold">Our Pizza</h3>
+          {restaurant.pizzas.map((pizza) => (
+            <div key={pizza.id}>
+              <h5>Pizza-Name:{pizza.name}</h5>
+              <img className='pizzaimg' src={pizza.image}  />
+              <p>
+                <em>{pizza.description}</em>
+              </p>
+              <p>
+                <em>{pizza.ingredients}</em>
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
