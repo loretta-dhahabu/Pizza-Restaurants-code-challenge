@@ -137,3 +137,18 @@
   float: left;
   margin-left: -5em;
 }
+.imageselect{
+  width: 12em !important;
+}
+
+.submitBtn{
+  border: none !important;
+  background-color:rgb(7, 160, 19);
+  color:antiquewhite;
+  border-radius: .5em;
+  width: 12em;
+  height: 4em;
+  font-weight: bold;
+  align-items: center;
+  
+}

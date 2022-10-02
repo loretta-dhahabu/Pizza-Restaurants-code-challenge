@@ -38,28 +38,48 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
     });
   }
 
-  return (
+    return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="pizza_id">Pizza:</label>
-      <select
-        id="pizza_id"
-        name="pizza_id"
-        value={pizzaId}
-        onChange={(event) => setPizzaId(event.target.value)}
-      >
-        <option value="">Select a pizza</option>
-        {pizzas.map((pizza) => (
-          <option key={pizza.id} value={pizza.id}>
-            {pizza.name}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="pizza_id">Price:</label>
-      <input
-        type="number"
-        value={price}
-        onChange={(event) => setPrice(event.target.value)}
-      />
+      <div className="form-group">
+        <label htmlFor="pizza_id">Pizza:</label>
+        <select
+          id="pizza_id"
+          name="pizza_id"
+          value={pizzaId}
+          onChange={(event) => setPizzaId(event.target.value)}
+        >
+          <option value="">All</option>
+          {pizzas.map((pizza) => (
+            <option key={pizza.id} value={pizza.id}>
+              {pizza.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="form-group">
+        <label htmlFor="pizza_id">Pizza-Image:</label>
+        <select className="imageselect"
+          id="pizza_id"
+          name="pizza_id"
+          value={pizzaId}
+          onChange={(event) => setPizzaId(event.target.value)}
+        >
+          <option value="">All</option>
+          {pizzas.map((pizza) => (
+            <option key={pizza.id} value={pizza.id}>
+              {pizza.image}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="form-group">
+        <label htmlFor="pizza_id">Price: </label>
+        <input
+          type="number"
+          value={price}
+          onChange={(event) => setPrice(event.target.value)}
+        />
+      </div>
       {formErrors.length > 0
         ? formErrors.map((err) => (
             <p key={err} style={{ color: "red" }}>
@@ -67,7 +87,7 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
             </p>
           ))
         : null}
-      <button type="submit">Add To Restaurant</button>
+      <button  className="submitBtn" type="submit">Add To Restaurant</button>
     </form>
   );
 }
