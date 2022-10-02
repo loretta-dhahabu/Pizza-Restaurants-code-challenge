@@ -66,12 +66,31 @@ function Restaurant ()
             </div>
           </div>
         </div>
-        <div className="card">
+        <div className="card restcards" >
           <h3 className="text-center text-bold">Our Pizza</h3>
           {restaurant.pizzas.map((pizza) => (
             <div key={pizza.id}>
-              <h5>Pizza-Name:{pizza.name}</h5>
+              <img className="pizzaimg" src={pizza.image} />
+              <h5>
+                Pizza-Name: <em>{pizza.name}</em>
+              </h5>
+              <h5>Description</h5>
+              <p>
+                <em className='text-center'>{pizza.description}</em>
+              </p>
+              <h5>Ingredients</h5>
+              <p>
+                <em className="">{pizza.ingredients}</em>
+              </p>
+            </div>
+          ))}
+        </div>
+        {/* <div className="card">
+          <h3 className="text-center text-bold">Our Pizza</h3>
+          {restaurant.pizzas.map((pizza) => (
+            <div key={pizza.id}>
               <img className='pizzaimg' src={pizza.image}  />
+              <h5>Pizza-Name:{pizza.name}</h5>
               <p>
                 <em>{pizza.description}</em>
               </p>
@@ -80,7 +99,7 @@ function Restaurant ()
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -106,3 +106,9 @@
   color: black;
   box-shadow: 8px 8px 3px   hotpink !important;
 }
+.pizzaimg{
+  box-shadow: 10px 10px 5px 2px lightcoral !important;
+  width: 70vh;
+  margin-bottom: 2em;
+  border-radius: 2em;
+}
