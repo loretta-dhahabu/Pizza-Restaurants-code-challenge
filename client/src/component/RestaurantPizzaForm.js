@@ -9,12 +9,12 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
 
   useEffect(() => {
     fetch("/pizzas")
-      .then((r) => r.json())
+      .then((response) => response.json())
       .then(setPizzas);
   }, []);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     const formData = {
       pizza_id: pizzaId,
       restaurant_id: restaurantId,
@@ -26,14 +26,14 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((newPizza) => {
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then((newPizza) => {
           onAddPizza(newPizza);
           setFormErrors([]);
         });
       } else {
-        r.json().then((err) => setFormErrors(err.errors));
+        response.json().then((err) => setFormErrors(err.errors));
       }
     });
   }
@@ -45,7 +45,7 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
         id="pizza_id"
         name="pizza_id"
         value={pizzaId}
-        onChange={(e) => setPizzaId(e.target.value)}
+        onChange={(event) => setPizzaId(event.target.value)}
       >
         <option value="">Select a pizza</option>
         {pizzas.map((pizza) => (
@@ -58,7 +58,7 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
       <input
         type="number"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(event) => setPrice(event.target.value)}
       />
       {formErrors.length > 0
         ? formErrors.map((err) => (

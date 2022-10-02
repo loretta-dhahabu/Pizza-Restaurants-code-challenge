@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import RestaurantPizzaForm from './RestaurantPizzaForm';
 
 function Restaurant ()
 {
@@ -50,12 +51,18 @@ function Restaurant ()
                 to={`/restaurants/${restaurant.id}`}
                 onClick={() => <Restaurant key={restaurant.id} />}
               >
-                <button className="viewBtn">EDIT</button>
+                <button className="DeleteBtn">DELETE</button>
+              </Link>
+
+              <Link
+                to={`/restaurant_pizzas`}
+                onClick={() => <RestaurantPizzaForm key={restaurant.id} />}>
+                <button className="AddBtn">Add Pizza</button>
               </Link>
             </div>
           </div>
         </div>
-        <div className="card restcards" >
+        <div className="card restcards">
           <h3 className="text-center text-bold">Our Pizza</h3>
           {restaurant.pizzas.map((pizza) => (
             <div key={pizza.id}>
@@ -65,7 +72,7 @@ function Restaurant ()
               </h5>
               <h5>Description</h5>
               <p>
-                <em className='text-center'>{pizza.description}</em>
+                <em className="text-center">{pizza.description}</em>
               </p>
               <h5>Ingredients</h5>
               <p>
