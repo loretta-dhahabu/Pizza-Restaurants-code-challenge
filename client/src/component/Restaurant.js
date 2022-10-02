@@ -13,9 +13,13 @@ function Restaurant ()
 
   
   useEffect(() => {
-    fetch(`/restaurants/${id}`).then((response) => {
+    fetch( `/restaurants/${id}` )
+      .then( ( response ) =>
+      {
       if (response.ok) {
-        response.json().then( (restaurant) => {
+        response.json()
+          .then( ( restaurant ) =>
+          {
           console.log(restaurant);
           setRestaurant({ data: restaurant, error: "", status: "resolved" })
         } );
@@ -31,7 +35,7 @@ function Restaurant ()
     });
   }, [ id ] );
   
-  function handleAddPizza(newPizza) {
+  function handleAddNewPizza(newPizza) {
     setRestaurant({
       data: {
         ...restaurant,
@@ -39,7 +43,7 @@ function Restaurant ()
       },
       error: null,
       status: "resolved",
-    });
+    },[]);
   }
 
   
@@ -96,7 +100,7 @@ function Restaurant ()
         </div>
         <div className="card">
           <h3>Add New Pizza</h3>
-          <PizzaForm restaurantId={restaurant.id} onAddPizza={handleAddPizza} />
+          {/* <Restaurant restaurantId={restaurant.id} onAddPizza={handleAddNewPizza} /> */}
         </div>
         {/* <div className="card">
           <h3 className="text-center text-bold">Our Pizza</h3>

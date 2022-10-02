@@ -1,13 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Restaurant from "./Restaurant";
+
 
 function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
   const [pizzas, setPizzas] = useState([]);
   const [pizzaId, setPizzaId] = useState("");
   const [price, setPrice] = useState("");
-  const [formErrors, setFormErrors] = useState([]);
+    const [ formErrors, setFormErrors ] = useState( [] );
+    
+    const { id } = useParams();
 
   useEffect(() => {
     fetch("/pizzas")
@@ -90,7 +93,7 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
               </p>
             ))
           : null}
-        <Link to={`/restaurant`} onClick={() => <Restaurant />}>
+        <Link to={`/restaurants/${id}`} onClick={() => <Restaurant />}>
           <button className="submitBtn">Add To Restaurant</button>
         </Link>
         {/* <button className="submitBtn" type="submit">
