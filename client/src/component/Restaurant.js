@@ -29,7 +29,19 @@ function Restaurant ()
           );
       }
     });
-  }, [id]);
+  }, [ id ] );
+  
+  function handleAddPizza(newPizza) {
+    setRestaurant({
+      data: {
+        ...restaurant,
+        pizzas: [...restaurant.pizzas, newPizza],
+      },
+      error: null,
+      status: "resolved",
+    });
+  }
+
   
   if (status === "pending") return <h1>Loading...</h1>;
   if (status === "rejected") return <h1>Error: {error.error}</h1>;
@@ -56,7 +68,8 @@ function Restaurant ()
 
               <Link
                 to={`/restaurant_pizzas`}
-                onClick={() => <RestaurantPizzaForm key={restaurant.id} />}>
+                onClick={() => <RestaurantPizzaForm key={restaurant.id} />}
+              >
                 <button className="addBtn ml-auto">Add Pizza</button>
               </Link>
             </div>
@@ -80,6 +93,10 @@ function Restaurant ()
               </p>
             </div>
           ))}
+        </div>
+        <div className="card">
+          <h3>Add New Pizza</h3>
+          <PizzaForm restaurantId={restaurant.id} onAddPizza={handleAddPizza} />
         </div>
         {/* <div className="card">
           <h3 className="text-center text-bold">Our Pizza</h3>
