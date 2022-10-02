@@ -51,13 +51,13 @@ function Restaurant ()
                 to={`/restaurants/${restaurant.id}`}
                 onClick={() => <Restaurant key={restaurant.id} />}
               >
-                <button className="DeleteBtn">DELETE</button>
+                <button className="deleteBtn">DELETE</button>
               </Link>
 
               <Link
                 to={`/restaurant_pizzas`}
                 onClick={() => <RestaurantPizzaForm key={restaurant.id} />}>
-                <button className="AddBtn">Add Pizza</button>
+                <button className="addBtn ml-auto">Add Pizza</button>
               </Link>
             </div>
           </div>

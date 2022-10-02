@@ -113,3 +113,27 @@
   border-radius: 2em;
   object-fit: cover;
 }
+
+.addBtn{
+  border: none !important;
+  background-color:rgb(107, 168, 15);
+  color:antiquewhite;
+  border-radius: .5em;
+  width: 6em;
+  height: 3em;
+  font-weight: bold;
+  float: right;
+  margin-right: -5em;
+}
+
+.deleteBtn{
+  border: none !important;
+  background-color:rgb(242, 10, 10);
+  color:antiquewhite;
+  border-radius: .5em;
+  width: 6em;
+  height: 3em;
+  font-weight: bold;
+  float: left;
+  margin-left: -5em;
+}
