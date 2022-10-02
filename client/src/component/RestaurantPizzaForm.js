@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Restaurant from "./Restaurant";
 
 function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
   const [pizzas, setPizzas] = useState([]);
@@ -39,57 +41,63 @@ function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
   }
 
     return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="pizza_id">Pizza:</label>
-        <select
-          id="pizza_id"
-          name="pizza_id"
-          value={pizzaId}
-          onChange={(event) => setPizzaId(event.target.value)}
-        >
-          <option value="">All</option>
-          {pizzas.map((pizza) => (
-            <option key={pizza.id} value={pizza.id}>
-              {pizza.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="pizza_id">Pizza-Image:</label>
-        <select className="imageselect"
-          id="pizza_id"
-          name="pizza_id"
-          value={pizzaId}
-          onChange={(event) => setPizzaId(event.target.value)}
-        >
-          <option value="">All</option>
-          {pizzas.map((pizza) => (
-            <option key={pizza.id} value={pizza.id}>
-              {pizza.image}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="pizza_id">Price: </label>
-        <input
-          type="number"
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-        />
-      </div>
-      {formErrors.length > 0
-        ? formErrors.map((err) => (
-            <p key={err} style={{ color: "red" }}>
-              {err}
-            </p>
-          ))
-        : null}
-      <button  className="submitBtn" type="submit">Add To Restaurant</button>
-    </form>
-  );
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="pizza_id">Pizza:</label>
+          <select
+            id="pizza_id"
+            name="pizza_id"
+            value={pizzaId}
+            onChange={(event) => setPizzaId(event.target.value)}
+          >
+            <option value="">All</option>
+            {pizzas.map((pizza) => (
+              <option key={pizza.id} value={pizza.id}>
+                {pizza.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="pizza_id">Pizza-Image:</label>
+          <select
+            className="imageselect"
+            id="pizza_id"
+            name="pizza_id"
+            value={pizzaId}
+            onChange={(event) => setPizzaId(event.target.value)}
+          >
+            <option value="">All</option>
+            {pizzas.map((pizza) => (
+              <option key={pizza.id} value={pizza.id}>
+                {pizza.image}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="pizza_id">Price: </label>
+          <input
+            type="number"
+            value={price}
+            onChange={(event) => setPrice(event.target.value)}
+          />
+        </div>
+        {formErrors.length > 0
+          ? formErrors.map((err) => (
+              <p key={err} style={{ color: "red" }}>
+                {err}
+              </p>
+            ))
+          : null}
+        <Link to={`/restaurant`} onClick={() => <Restaurant />}>
+          <button className="submitBtn">Add To Restaurant</button>
+        </Link>
+        {/* <button className="submitBtn" type="submit">
+          Add To Restaurant
+        </button> */}
+      </form>
+    );
 }
 
 export default RestaurantPizzaForm;
