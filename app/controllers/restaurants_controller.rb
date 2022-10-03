@@ -10,7 +10,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     #GET /restaurants/:id
     def show
         restaurant = Restaurant.find(params[:id])
-        render json: restaurant,  status: :ok
+        render json: restaurant, serializer: RestaurantSerializer,  status: :ok
     end
 
     # DELETE /restaurants/:id
