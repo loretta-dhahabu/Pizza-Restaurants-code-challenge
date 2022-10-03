@@ -4,80 +4,67 @@ import { Link, useParams } from "react-router-dom";
 import Restaurant from "./Restaurant";
 
 
-function RestaurantPizzaForm({ restaurantId, onAddPizza }) {
-  const [pizzas, setPizzas] = useState([]);
-  const [pizzaId, setPizzaId] = useState("");
-  const [price, setPrice] = useState("");
-    const [ formErrors, setFormErrors ] = useState( [] );
-    
-    const { id } = useParams();
+function RestaurantPizzaForm ({pizzas})
+{
+  const [ price, setPrice ] = useState( "" )
+  // const [pizzas, setPizzas] = useState([]);
+  const [ formErrors, setFormErrors ] = useState( "" );
+  const { id } = useParams();
+  const [ formData, setFormData ] = useState( {
+    pizza_id: "",
+    restaurant_id: "",
+    price: ""
+  } );
 
-  useEffect(() => {
-    fetch("/pizzas")
-      .then((response) => response.json())
-      .then(setPizzas);
-  }, []);
+  function handleChange (event){
+    setFormData({...formData, [event.target.name]: event.target.value})
+  }
 
-  function handleSubmit(event) {
+  function handleSubmit (event)
+  {
     event.preventDefault();
-    const formData = {
-      pizza_id: pizzaId,
-      restaurant_id: restaurantId,
-      price: parseInt(price),
-    };
-    fetch("/restaurant_pizzas", {
+
+    fetch( "/restaurant_pizzas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
-    }).then((response) => {
-      if (response.ok) {
-        response.json().then((newPizza) => {
-          onAddPizza(newPizza);
-          setFormErrors([]);
-        });
-      } else {
-        response.json().then((err) => setFormErrors(err.errors));
-      }
-    });
+      body: {
+        body: JSON.stringify( formData ),
+      },
+    } )
+      .then( ( response ) => response.json() )
+      .then( ( data ) =>
+      {
+        console.log( data )
+        setFormData( data )
+      } );
+    
   }
-
+  
     return (
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="pizza_id">Pizza:</label>
           <select
-            id="pizza_id"
+            // id="pizza_id"
             name="pizza_id"
-            value={pizzaId}
-            onChange={(event) => setPizzaId(event.target.value)}
+            value={formData.id}
+            onChange={handleChange}
           >
             <option value="">All</option>
-            {pizzas.map((pizza) => (
-              <option key={pizza.id} value={pizza.id}>
-                {pizza.name}
-              </option>
-            ))}
+            {
+              ( Array.isArray( pizzas ) ? pizzas : [] ).map( pizza =>
+              {
+              console.log(pizza);
+              return(
+                 <option key={pizza.id} value={pizza.id}>{pizza.name}</option>
+              )
+            })
+          }
           </select>
         </div>
-        <div className="form-group">
-          <label htmlFor="pizza_id">Pizza-Image:</label>
-          <select
-            className="imageselect"
-            id="pizza_id"
-            name="pizza_id"
-            value={pizzaId}
-            onChange={(event) => setPizzaId(event.target.value)}
-          >
-            <option value="">All</option>
-            {pizzas.map((pizza) => (
-              <option key={pizza.id} value={pizza.id}>
-                {pizza.image}
-              </option>
-            ))}
-          </select>
-        </div>
+        
         <div className="form-group">
           <label htmlFor="pizza_id">Price: </label>
           <input

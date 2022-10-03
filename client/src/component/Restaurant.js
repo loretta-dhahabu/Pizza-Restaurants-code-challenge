@@ -11,7 +11,7 @@ function Restaurant ()
   });
   const { id } = useParams();
 
-  
+
   useEffect(() => {
     fetch( `/restaurants/${id}` )
       .then( ( response ) =>
@@ -29,22 +29,22 @@ function Restaurant ()
       {
         response.json()
           .then((err) =>
-            setRestaurant({ data: "", error: err.error, status: "rejected" })
+            setRestaurant({ data: "not found", error: err.error, status: "rejected" })
           );
       }
     });
   }, [ id ] );
   
-  function handleAddNewPizza(newPizza) {
-    setRestaurant({
-      data: {
-        ...restaurant,
-        pizzas: [...restaurant.pizzas, newPizza],
-      },
-      error: null,
-      status: "resolved",
-    },[]);
-  }
+  // function handleAddNewPizza(newPizza) {
+  //   setRestaurant({
+  //     data: {
+  //       ...restaurant,
+  //       pizzas: [...restaurant.pizzas, newPizza],
+  //     },
+  //     error: null,
+  //     status: "resolved",
+  //   },[]);
+  // }
 
   
   if (status === "pending") return <h1>Loading...</h1>;
@@ -63,16 +63,10 @@ function Restaurant ()
             <h5 className="card-title text-center">{restaurant.name}</h5>
             <p className="card-text text-center">{restaurant.address}</p>
             <div className="restaurant-details">
-              <Link
-                to={`/restaurants/${restaurant.id}`}
-                onClick={() => <Restaurant />}
-              >
-                <button className="deleteBtn">DELETE</button>
-              </Link>
 
               <Link
                 to={`/restaurant_pizzas`}
-                onClick={() => <RestaurantPizzaForm/>}
+                onClick={ () => <RestaurantPizzaForm pizzas={restaurant.pizzas} />}
               >
                 <button className="addBtn ml-auto">Add Pizza</button>
               </Link>

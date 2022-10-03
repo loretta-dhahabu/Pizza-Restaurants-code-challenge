@@ -6,13 +6,35 @@ function RestaurantList() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    fetch("/restaurants")
+    getRestaurants();
+  }, [] );
+  
+  async function getRestaurants ()
+  {
+    let result = await fetch("/restaurants")
+    result = await result.json()
+    setRestaurants(result)
+  }
+  function handleDelete(id) {
+    fetch(`/restaurants/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setRestaurants(() => data);
-      });
-  }, []);
+      .then(() => {
+        const deleteRestaurant = restaurants.filter(
+          (restaurant) => restaurant.id !== id
+        );
+        setRestaurants(deleteRestaurant);
+      })
+
+      .catch((err) => console.log(err));
+    alert( "successifully deleted" );
+    
+    getRestaurants();
+  }
 
   let hotelList = restaurants.map((restaurant) => {
     return (
@@ -30,6 +52,14 @@ function RestaurantList() {
               </h5>
               <p className="card-text text-center">{restaurant.address}</p>
               <div className="restaurant-details">
+                <button
+                  onClick={() => {
+                    handleDelete(restaurant.id);
+                  }}
+                  className="deleteBtn"
+                >
+                  DELETE
+                </button>
                 <Link
                   to={`/restaurants/${restaurant.id}`}
                   onClick={() => <Restaurant key={restaurant.id} />}
@@ -42,33 +72,14 @@ function RestaurantList() {
         </div>
       </div>
 
-      // <div className="container" key={restaurant.id}>
-      //   <div className="row">
-      //     <div className="col-12 col-md-12 col-lg-12">
-      //       <div className="meal-imgs">
-      //         <img src={restaurant.image} className="restaurant-img" />
-      //       </div>
-      //       <div className="details">
-      //         <h3>
-      //           <em>Title: </em>
-      //           {restaurant.name}
-      //         </h3>
-      //         <p>{restaurant.address}</p>
-      //         <div className="restaurant-details">
-      //           <Link
-      //             to={`/restaurants/${restaurant.id}`}
-      //             onClick={() => <Restaurant key={restaurant.id} />}
-      //           >
-      //             <button>View More</button>
-      //           </Link>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
+     
     );
   });
-  return <div>{hotelList}</div>;
+  return (
+    <div>
+      {hotelList}
+    </div>
+  );
 }
 
 export default RestaurantList;
