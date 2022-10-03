@@ -65,14 +65,14 @@ function Restaurant ()
             <div className="restaurant-details">
               <Link
                 to={`/restaurants/${restaurant.id}`}
-                onClick={() => <Restaurant key={restaurant.id} />}
+                onClick={() => <Restaurant />}
               >
                 <button className="deleteBtn">DELETE</button>
               </Link>
 
               <Link
                 to={`/restaurant_pizzas`}
-                onClick={() => <RestaurantPizzaForm key={restaurant.id} />}
+                onClick={() => <RestaurantPizzaForm/>}
               >
                 <button className="addBtn ml-auto">Add Pizza</button>
               </Link>

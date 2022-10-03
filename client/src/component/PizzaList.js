@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-function PizzaList() {
+
+function PizzaList ()
+{
+  const [ pizzas, SetPizza ] = useState( [] )
+  
+ 
   return (
     <div>PizzaList</div>
   )

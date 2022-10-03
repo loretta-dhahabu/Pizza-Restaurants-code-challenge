@@ -2,7 +2,7 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
-puts "🍕 Seeding restaurants..."
+puts "Start Seeding ..."
 Restaurant.create!([
   {
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
@@ -21,7 +21,7 @@ Restaurant.create!([
   }
 ])
 
-puts "🍕 Seeding pizzas..."
+
 Pizza.create!([
   {
     image: "https://images.unsplash.com/photo-1605478371310-a9f1e96b4ff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBpenphJTIwcmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
@@ -85,7 +85,6 @@ Pizza.create!([
   }
 ])
 
-puts "🍕 Adding pizzas to restaurants..."
 Restaurant.all.each do |restaurant|
   rand(1..5).times do
     # get a random pizza
@@ -95,7 +94,7 @@ Restaurant.all.each do |restaurant|
   end
 end
 
-puts "🍕 Done seeding!"
+puts "End Seeding"
 
 
 # Examples:

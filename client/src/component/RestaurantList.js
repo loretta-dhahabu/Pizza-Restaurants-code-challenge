@@ -16,9 +16,9 @@ function RestaurantList() {
 
   let hotelList = restaurants.map((restaurant) => {
     return (
-      <div className="restbody">
+      <div className="restbody" key={restaurant.id}>
         <div className="container bg-darksalmon">
-          <div className="card restcards" key={restaurant.id}>
+          <div className="card restcards">
             <img
               src={restaurant.image}
               className="card-img-top restimages"
