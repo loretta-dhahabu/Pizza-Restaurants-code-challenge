@@ -160,7 +160,7 @@ DEPENDENCIES
   byebug
   listen (~> 3.3)
   puma (~> 5.0)
-  rails (~> 6.1.7)
+  rails
   sqlite3 (~> 1.4)
   tzinfo-data
 
@@ -168,4 +168,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.21
+   2.3.22
