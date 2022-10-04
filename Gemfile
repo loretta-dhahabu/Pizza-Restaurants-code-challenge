@@ -6,7 +6,7 @@ ruby '2.7.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails'
 # Use sqlite3 as the database for Active Record
-
+gem 'sinatra-contrib', '~> 2.2', '>= 2.2.2',require: false
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use Active Model has_secure_password
@@ -14,6 +14,10 @@ gem 'puma', '~> 5.0'
 gem 'active_model_serializers'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+
+group :production do
+  gem 'pg', '~> 1.4', '>= 1.4.3'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
