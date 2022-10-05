@@ -20,7 +20,7 @@ function Restaurant ()
         response.json()
           .then( ( restaurant ) =>
           {
-          console.log(restaurant);
+          // console.log(restaurant);
           setRestaurant({ data: restaurant, error: "", status: "resolved" })
         } );
         // console.log(restaurant);
@@ -35,16 +35,16 @@ function Restaurant ()
     });
   }, [ id ] );
   
-  // function handleAddNewPizza(newPizza) {
-  //   setRestaurant({
-  //     data: {
-  //       ...restaurant,
-  //       pizzas: [...restaurant.pizzas, newPizza],
-  //     },
-  //     error: null,
-  //     status: "resolved",
-  //   },[]);
-  // }
+  function handleAddNewPizza(newPizza) {
+    setRestaurant({
+      data: {
+        ...restaurant,
+        pizzas: [...restaurant.pizzas, newPizza],
+      },
+      error: null,
+      status: "resolved",
+    },[]);
+  }
 
   
   if (status === "pending") return <h1>Loading...</h1>;
@@ -92,25 +92,6 @@ function Restaurant ()
             </div>
           ))}
         </div>
-        <div className="card">
-          <h3>Add New Pizza</h3>
-          {/* <Restaurant restaurantId={restaurant.id} onAddPizza={handleAddNewPizza} /> */}
-        </div>
-        {/* <div className="card">
-          <h3 className="text-center text-bold">Our Pizza</h3>
-          {restaurant.pizzas.map((pizza) => (
-            <div key={pizza.id}>
-              <img className='pizzaimg' src={pizza.image}  />
-              <h5>Pizza-Name:{pizza.name}</h5>
-              <p>
-                <em>{pizza.description}</em>
-              </p>
-              <p>
-                <em>{pizza.ingredients}</em>
-              </p>
-            </div>
-          ))}
-        </div> */}
       </div>
     </div>
   );
