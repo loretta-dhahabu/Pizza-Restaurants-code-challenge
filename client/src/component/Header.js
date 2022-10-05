@@ -3,7 +3,7 @@ import React from 'react'
 function Header() {
     return (
       //   NavBar
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky">
         <a className="navbar-brand" href="/">
           Pizza-Restaurants
         </a>
