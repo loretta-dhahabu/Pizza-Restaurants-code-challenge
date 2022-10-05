@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import Restaurant from "../component/Restaurant";
+import {Link, useParams } from "react-router-dom";
+import Restaurant from "../component/Restaurant";
 
-function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
+function RestaurantPizzaForm() {
   // console.log(pizzas)
   const [pizzas, setPizza] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({price: "",pizza_id: "", restaurant_id: "",});
-  const { id } = useParams;
+  const { id } = useParams();
+  // const navigate = useNavigate();
 
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -31,7 +32,7 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
       });
   }, []);
 
-  function handleFormSubmit(event) {
+  function handleFormSubmit(event, onAddingPizza) {
     event.preventDefault();
 
     fetch("/api/restaurant_pizzas", {
@@ -46,6 +47,8 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
         response.json().then((newPizza) => {
           console.log(newPizza);
           onAddingPizza(newPizza);
+
+          // navigate(`/restaurants/${id}`);
           setErrors([]);
         });
       } else {
@@ -55,7 +58,7 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
   }
   return (
     <div>
-      <form className="container mt-3 ">
+      <form className="container mt-3 " onSubmit={handleFormSubmit}>
         <div className="pizza-form">
           <label htmlFor="price" className="mr-2">
             Price:{" "}
@@ -112,10 +115,24 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
             )}
           </select>
         </div>
+        <Link to={`/restaurants/${id}`} onClick={() => <Restaurant />}>
+          <button
+            className="submitBtn"
+            type="submit"
+            onClick={handleFormSubmit}>
+            Add To Restaurant
+          </button>
+        </Link>
 
-        <button className="submitBtn" onClick={handleFormSubmit}>
-          Add To Restaurant
-        </button>
+        {/* <a href="`/restaurants/${id}`">
+          <button
+            className="submitBtn"
+            type="submit"
+            onClick={handleFormSubmit}
+          >
+            Add To Restaurant
+          </button>
+        </a> */}
       </form>
     </div>
   );
