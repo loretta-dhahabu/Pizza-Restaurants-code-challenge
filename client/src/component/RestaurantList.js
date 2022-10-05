@@ -11,12 +11,12 @@ function RestaurantList() {
   
   async function getRestaurants ()
   {
-    let result = await fetch("/restaurants")
+    let result = await fetch("/api/restaurants")
     result = await result.json()
     setRestaurants(result)
   }
   function handleDelete(id) {
-    fetch(`/restaurants/${id}`, {
+    fetch(`/api/restaurants/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

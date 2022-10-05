@@ -21,7 +21,7 @@ function RestaurantPizzaForm({ pizzas }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("/restaurant_pizzas", {
+    fetch("/api/restaurant_pizzas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

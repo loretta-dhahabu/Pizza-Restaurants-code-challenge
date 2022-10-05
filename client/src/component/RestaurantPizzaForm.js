@@ -16,7 +16,7 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
   // console.log(formData)
 
   useEffect(() => {
-    fetch("/pizzas")
+    fetch("/api/pizzas")
       .then((response) => response.json())
       .then((data) => {
         setPizza(data);
@@ -24,7 +24,7 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
   }, []);
 
   useEffect(() => {
-    fetch("/restaurants")
+    fetch("/api/restaurants")
       .then((response) => response.json())
       .then((data) => {
         setRestaurants(data);
@@ -34,7 +34,7 @@ function RestaurantPizzaForm({ restaurantId, onAddingPizza }) {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    fetch("/restaurant_pizzas", {
+    fetch("/api/restaurant_pizzas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

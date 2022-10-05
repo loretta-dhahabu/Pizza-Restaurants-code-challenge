@@ -7,7 +7,7 @@ function PizzaList ()
   
   useEffect( () =>
   {
-    fetch( '/pizzas' )
+    fetch( '/api/pizzas' )
       .then( ( response ) =>response.json())
       .then( ( data ) =>
       {

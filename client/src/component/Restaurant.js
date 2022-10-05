@@ -13,7 +13,7 @@ function Restaurant ()
 
 
   useEffect(() => {
-    fetch( `/restaurants/${id}` )
+    fetch( `/api/restaurants/${id}` )
       .then( ( response ) =>
       {
       if (response.ok) {
