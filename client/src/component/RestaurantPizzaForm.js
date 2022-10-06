@@ -115,7 +115,7 @@ function RestaurantPizzaForm() {
             )}
           </select>
         </div>
-        <Link to={`/restaurants/${id}`} onClick={() => <Restaurant />}>
+        <Link to={`/restaurant/${id}`} onClick={() => <Restaurant />}>
           <button
             className="submitBtn"
             type="submit"
