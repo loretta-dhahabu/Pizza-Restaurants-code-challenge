@@ -27,12 +27,12 @@ function Header() {
               </a>
             </li>
             <li className="nav-item active">
-              <a className="nav-link" href="/restaurants">
+              <a className="nav-link" href="/restaurant">
                 <i className="fa fa-cutlery" aria-hidden="true"></i> Restaurants
               </a>
             </li>
             <li className="nav-item active">
-              <a className="nav-link" href="/pizzas">
+              <a className="nav-link" href="/pizza">
                 <i className="fa fa-cutlery" aria-hidden="true"></i> Pizzas
               </a>
             </li>
