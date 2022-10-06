@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link, useParams } from "react-router-dom";
+import {useNavigate, useParams } from "react-router-dom";
 import Restaurant from "../component/Restaurant";
 
 function RestaurantPizzaForm() {
@@ -9,7 +9,7 @@ function RestaurantPizzaForm() {
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({price: "",pizza_id: "", restaurant_id: "",});
   const { id } = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -115,14 +115,17 @@ function RestaurantPizzaForm() {
             )}
           </select>
         </div>
-        <Link to={`/restaurant/${id}`} onClick={() => <Restaurant />}>
           <button
             className="submitBtn"
             type="submit"
-            onClick={handleFormSubmit}>
+          onClick={ () =>
+          {
+            handleFormSubmit()
+            navigate(`/restaurant/${id}`)
+          } }>
             Add To Restaurant
           </button>
-        </Link>
+    
 
         {/* <a href="`/restaurants/${id}`">
           <button
