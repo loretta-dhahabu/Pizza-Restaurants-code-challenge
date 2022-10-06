@@ -4,15 +4,46 @@
 puts "Start Seeding ..."
 Restaurant.create!([
   {
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
-    name: "Sottocasa NYC",
-    address: "298 Atlantic Ave, Brooklyn, NY 11201"
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/1b/8a/ee/69/koi-pond-view-room.jpg",
+    name: "Labotte ristorante",
+    address: "14 Marine Ave, White PLains, NY"
   },
+  {
+    image: "http://eatthisny.com/wp-content/uploads/2021/10/IMG_9771.jpeg",
+    name: "Baby Luc's",
+    address: "387 Court St, Brooklyn, NY 11231"
+  },
+
   {
     image: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNvdHRvY2FzYSUyMG55YyUyMHBpenphJTIwcmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
     name: "PizzArte",
     address: "69 W 55th St, New York, NY 10019"
   },
+
+  {
+    image: "https://img.restaurantguru.com/cbe2-Pizzeria-Uncle-Pauls-Pizza-photo.jpg",
+    name: "Uncle Paul's Piiza NY",
+    address: "70 Vanderbilt Ave"
+  },
+
+  {
+    image: "https://images.happycow.net/venues/1024/11/81/hcmp118121_453194.jpeg",
+    name: "NY Pizza Suprema",
+    address: "413 8th Ave, Near Madison Square Garden"
+  },
+
+  {
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+    name: "Sottocasa NYC",
+    address: "298 Atlantic Ave, Brooklyn, NY 11201"
+  },
+
+  {
+    image: "https://www.capizzi.co.nz/wp-content/uploads/2019/04/Capizzi-Pizzeria-pizza-front.jpg",
+    name: "Capizzi",
+    address: "547 9th Ave"
+  },
+
   {
     image: "https://images.unsplash.com/photo-1474898856510-884a2c0be546?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHNvdHRvY2FzYSUyMG55YyUyMHBpenphJTIwcmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
     name: "San Matteo NYC",
