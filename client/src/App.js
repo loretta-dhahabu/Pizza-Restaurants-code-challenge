@@ -14,9 +14,9 @@ function App() {
         {/* <Home /> */}
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/restaurant" element={<RestaurantList />}></Route>
-          <Route path="/pizza" element={<PizzaList />}></Route>
-          <Route path="/restaurant/:id" element={<Restaurant />}></Route>
+          <Route exact path="/restaurants" element={<RestaurantList />}></Route>
+          <Route path="/pizzas" element={<PizzaList />}></Route>
+          <Route path="/restaurants/:id" element={<Restaurant />}></Route>
           <Route path="/restaurant_pizzas" element={<RestaurantPizzaForm />} />
         </Routes>
       </Router>

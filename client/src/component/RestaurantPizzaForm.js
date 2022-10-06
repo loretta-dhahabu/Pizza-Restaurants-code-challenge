@@ -124,7 +124,7 @@ function RestaurantPizzaForm({ onAddingPizza }) {
           type="submit"
           onClick={() => {
             handleFormSubmit();
-            navigate("/restaurant");
+            navigate("/restaurants");
           }}
         >
           Add To Restaurant

@@ -61,7 +61,7 @@ function RestaurantList() {
                   DELETE
                 </button>
                 <Link
-                  to={`/restaurant/${restaurant.id}`}
+                  to={`/restaurants/${restaurant.id}`}
                   onClick={() => <Restaurant key={restaurant.id} />}
                 >
                   <button className="viewBtn">View More</button>

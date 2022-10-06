@@ -32,7 +32,7 @@ function Home ()
                 <img src={Image1} className="d-block  w-100 myimage" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
@@ -44,7 +44,7 @@ function Home ()
                 <img src={Image2} className="d-block  w-100 myimage" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
@@ -56,7 +56,7 @@ function Home ()
                 <img src={Image3} className="d-block  w-100 myimage" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
@@ -69,7 +69,7 @@ function Home ()
                 WELCOME
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
@@ -82,7 +82,7 @@ function Home ()
                 WELCOME
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
@@ -94,7 +94,7 @@ function Home ()
                 <img src={Image6} className="d-block  w-100 myimage" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
@@ -106,7 +106,7 @@ function Home ()
                 <img src={Image7} className="d-block  w-100 myimage" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5 className="notes">Welcome To Pizza Restaurants</h5>
-                  <a href="/restaurant">
+                  <a href="/restaurants">
                     <button className="bg-danger welcomeBtn">
                       <i className="fa fa-handshake-o" aria-hidden="true"></i>{" "}
                       WELCOME
