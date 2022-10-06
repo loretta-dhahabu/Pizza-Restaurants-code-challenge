@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-import {useNavigate, useParams } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import Restaurant from "../component/Restaurant";
 
-function RestaurantPizzaForm() {
+function RestaurantPizzaForm({ onAddingPizza }) {
   // console.log(pizzas)
   const [pizzas, setPizza] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [errors, setErrors] = useState([]);
-  const [formData, setFormData] = useState({price: "",pizza_id: "", restaurant_id: "",});
-  const { id } = useParams();
+  const [formData, setFormData] = useState({
+    price: "",
+    pizza_id: "",
+    restaurant_id: "",
+  });
+  // const { id } = useParams();
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -32,7 +36,7 @@ function RestaurantPizzaForm() {
       });
   }, []);
 
-  function handleFormSubmit(event, onAddingPizza) {
+  function handleFormSubmit(event) {
     event.preventDefault();
 
     fetch("/api/restaurant_pizzas", {
@@ -115,27 +119,16 @@ function RestaurantPizzaForm() {
             )}
           </select>
         </div>
-          <button
-            className="submitBtn"
-            type="submit"
-          onClick={ () =>
-          {
-            handleFormSubmit()
-            navigate(`/restaurant/${id}`)
-          } }>
-            Add To Restaurant
-          </button>
-    
-
-        {/* <a href="`/restaurants/${id}`">
-          <button
-            className="submitBtn"
-            type="submit"
-            onClick={handleFormSubmit}
-          >
-            Add To Restaurant
-          </button>
-        </a> */}
+        <button
+          className="submitBtn"
+          type="submit"
+          onClick={() => {
+            handleFormSubmit();
+            navigate("/restaurant");
+          }}
+        >
+          Add To Restaurant
+        </button>
       </form>
     </div>
   );
